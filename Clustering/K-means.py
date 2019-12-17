@@ -20,7 +20,7 @@
 # 
 # 
 
-# In[18]:
+# In[1]:
 
 
 import matplotlib.pyplot as plt
@@ -64,10 +64,10 @@ centers = kmeans.cluster_centers_
 plt.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.5);
 
 
-# In[34]:
+# In[2]:
 
 
-fig, axs = plt.subplots(2, 4,figsize=(14, 10))
+fig, axs = plt.subplots(2, 3,figsize=(14, 10))
 
 d_b_indexes = []
 calinski = []
@@ -121,25 +121,25 @@ for ncenters, ax in enumerate(axs.reshape(-1), 2):
 # 
 #  * The score is higher when clusters are dense and well separated, which relates to a standard concept of a cluster.
 
-# In[30]:
+# In[3]:
 
 
 fig2, ax2 = plt.subplots(1, 3, figsize=(15,4))
 
 ax2[0].set_title('Davies-Bouldin Index')
-ax2[0].plot(np.r_[2:10], d_b_indexes)
+ax2[0].plot(np.r_[2:8], d_b_indexes)
 
 ax2[1].set_title('Calinski-Harabasz Index')
-ax2[1].plot(np.r_[2:10], calinski)
+ax2[1].plot(np.r_[2:8], calinski)
 
 ax2[2].set_title('Silhouette Coefficient')
-ax2[2].plot(np.r_[2:10], silhouette)
+ax2[2].plot(np.r_[2:8], silhouette)
 
 
 # # Increasing amount of points for clustering
 #    Total 300 dots
 
-# In[31]:
+# In[4]:
 
 
 d_b_indexes = []
@@ -176,14 +176,11 @@ for ncenters, ax in enumerate(axs.reshape(-1), 2):
     d_b_indexes.append(index)
 
 
-# In[32]:
+# In[5]:
 
 
 fig2, ax2 = plt.subplots(1, 3, figsize=(15,4))
 
-print(d_b_indexes)
-print(calinski)
-print(silhouette)
 ax2[0].set_title('Davies-Bouldin Index')
 ax2[0].plot(np.r_[2:10], d_b_indexes)
 
