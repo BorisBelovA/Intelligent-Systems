@@ -1,0 +1,47 @@
+[System]
+Name='4laba_mamdani(v2)'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Загруженность_на_работе'
+Range=[0 10]
+NumMFs=3
+MF1='Маленькая':'trimf',[0 0 3]
+MF2='Средняя':'pimf',[0 4 8 10]
+MF3='Большая':'trimf',[6 10 10]
+
+[Input2]
+Name='Степень_усталости'
+Range=[0 10]
+NumMFs=3
+MF1='Маленькая':'trimf',[0 0 2.5]
+MF2='Средняя':'pimf',[0 0.891677675033025 6.04 10]
+MF3='Большая':'trimf',[6.54557463672391 10 10]
+
+[Output1]
+Name='Возможность_отпуска'
+Range=[0 10]
+NumMFs=3
+MF1='Не_давать_отпуск':'trimf',[0 0 4.167]
+MF2='Возможно_дать_отпуск':'trimf',[0.833 5 8.89696169088507]
+MF3='Однозначано_дать_отпуск':'trimf',[6.01717305151915 10 10]
+
+[Rules]
+1 1, 2 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
+3 1, 1 (1) : 1
+3 2, 1 (1) : 1
+3 3, 2 (1) : 1

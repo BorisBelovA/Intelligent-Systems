@@ -1,0 +1,47 @@
+[System]
+Name='4laba_sugeno'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='Загруженность_на_работе'
+Range=[0 10]
+NumMFs=3
+MF1='Маленькая':'trimf',[0 0 3]
+MF2='Средняя':'trimf',[2 4.5 7.5]
+MF3='Большая':'trimf',[6 10 10]
+
+[Input2]
+Name='Степень_усталости'
+Range=[0 10]
+NumMFs=3
+MF1='Маленькая':'trimf',[0 0 2.5]
+MF2='Средняя':'trimf',[1.5 4.5 9]
+MF3='Большая':'trimf',[6.5 10 10]
+
+[Output1]
+Name='Возможно_отпуска'
+Range=[0 1]
+NumMFs=3
+MF1='Не_давать_отпуск':'constant',[0]
+MF2='Возможно_дать_отпуск':'constant',[0.5]
+MF3='Однозначно_дать_отпуск':'constant',[1]
+
+[Rules]
+1 1, 2 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
+3 1, 1 (1) : 1
+3 2, 1 (1) : 1
+3 3, 2 (1) : 1
